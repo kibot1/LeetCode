@@ -1,8 +1,11 @@
 class Solution(object):
     def findLucky(self, arr):
         lucky_number = -1
+        skip = []
 
         for x in arr:
+            if x in skip:
+                continue
             temp = x
             freq = 0
             index = 0
@@ -13,6 +16,7 @@ class Solution(object):
                 lucky_number = temp
 
             freq = 0
+            skip.append(temp)
 
         return lucky_number
         
